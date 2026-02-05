@@ -67,7 +67,41 @@ def generate(generator_arguments_file: str) -> List[str]:
                     f"from {package_name}.{subfolder}.{module_name} import "
                     f"{idl_stem} as {idl_stem}  # noqa: F401\n"
                 )
-
+                if subfolder == 'srv':
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_Event as {idl_stem}_Event  # noqa: F401\n')
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_Request as {idl_stem}_Request  # noqa: F401\n')
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_Response as {idl_stem}_Response  # noqa: F401\n')
+                elif subfolder == 'action':
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_GetResult_Event as {idl_stem}_GetResult_Event'
+                        '  # noqa: F401\n')
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_GetResult_Request as {idl_stem}_GetResult_Request'
+                        '  # noqa: F401\n')
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_GetResult_Response as {idl_stem}_GetResult_Response'
+                        '  # noqa: F401\n')
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_SendGoal_Event as {idl_stem}_SendGoal_Event'
+                        '  # noqa: F401\n')
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_SendGoal_Request as {idl_stem}_SendGoal_Request'
+                        '  # noqa: F401\n')
+                    f.write(
+                        f'from {package_name}.{subfolder}.{module_name} import '
+                        f'{idl_stem}_SendGoal_Response as {idl_stem}_SendGoal_Response'
+                        '  # noqa: F401\n')
     return generated_files
 
 
