@@ -113,6 +113,7 @@ def get_defined_classes_srv(srv: Service) -> Set[str]:
     ret: Set[str] = {srv.namespaced_type.name}
     ret.update(get_defined_classes_msg(srv.request_message))
     ret.update(get_defined_classes_msg(srv.response_message))
+    ret.update(get_defined_classes_msg(srv.event_message))
     return ret
 
 
