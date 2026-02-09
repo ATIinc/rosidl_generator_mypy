@@ -68,9 +68,10 @@ def generate(generator_arguments_file: str) -> List[str]:
                     f"{idl_stem} as {idl_stem}  # noqa: F401\n"
                 )
                 if subfolder == 'srv':
-                    f.write(
-                        f'from {package_name}.{subfolder}.{module_name} import '
-                        f'{idl_stem}_Event as {idl_stem}_Event  # noqa: F401\n')
+                    #TODO(never): we don't have templates for Event types
+                    # f.write(
+                    #     f'from {package_name}.{subfolder}.{module_name} import '
+                    #     f'{idl_stem}_Event as {idl_stem}_Event  # noqa: F401\n')
                     f.write(
                         f'from {package_name}.{subfolder}.{module_name} import '
                         f'{idl_stem}_Request as {idl_stem}_Request  # noqa: F401\n')
@@ -78,10 +79,11 @@ def generate(generator_arguments_file: str) -> List[str]:
                         f'from {package_name}.{subfolder}.{module_name} import '
                         f'{idl_stem}_Response as {idl_stem}_Response  # noqa: F401\n')
                 elif subfolder == 'action':
-                    f.write(
-                        f'from {package_name}.{subfolder}.{module_name} import '
-                        f'{idl_stem}_GetResult_Event as {idl_stem}_GetResult_Event'
-                        '  # noqa: F401\n')
+                    #TODO(never): we don't have templates for Event types
+                    # f.write(
+                    #     f'from {package_name}.{subfolder}.{module_name} import '
+                    #     f'{idl_stem}_GetResult_Event as {idl_stem}_GetResult_Event'
+                    #     '  # noqa: F401\n')
                     f.write(
                         f'from {package_name}.{subfolder}.{module_name} import '
                         f'{idl_stem}_GetResult_Request as {idl_stem}_GetResult_Request'
@@ -90,10 +92,11 @@ def generate(generator_arguments_file: str) -> List[str]:
                         f'from {package_name}.{subfolder}.{module_name} import '
                         f'{idl_stem}_GetResult_Response as {idl_stem}_GetResult_Response'
                         '  # noqa: F401\n')
-                    f.write(
-                        f'from {package_name}.{subfolder}.{module_name} import '
-                        f'{idl_stem}_SendGoal_Event as {idl_stem}_SendGoal_Event'
-                        '  # noqa: F401\n')
+                    #TODO(never): we don't have templates for Event types
+                    # f.write(
+                    #     f'from {package_name}.{subfolder}.{module_name} import '
+                    #     f'{idl_stem}_SendGoal_Event as {idl_stem}_SendGoal_Event'
+                    #     '  # noqa: F401\n')
                     f.write(
                         f'from {package_name}.{subfolder}.{module_name} import '
                         f'{idl_stem}_SendGoal_Request as {idl_stem}_SendGoal_Request'
@@ -113,7 +116,8 @@ def get_defined_classes_srv(srv: Service) -> Set[str]:
     ret: Set[str] = {srv.namespaced_type.name}
     ret.update(get_defined_classes_msg(srv.request_message))
     ret.update(get_defined_classes_msg(srv.response_message))
-    ret.update(get_defined_classes_msg(srv.event_message))
+    #TODO(never): we don't have templates for Event types
+    # ret.update(get_defined_classes_msg(srv.event_message))
     return ret
 
 
