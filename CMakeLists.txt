@@ -8,7 +8,6 @@ find_package(rosidl_generator_py REQUIRED)
 
 ament_export_dependencies(ament_cmake)
 ament_export_dependencies(rmw)
-ament_export_dependencies(rosidl_pycommon)
 ament_export_dependencies(rosidl_generator_py)
 
 ament_index_register_resource("rosidl_generator_packages")
