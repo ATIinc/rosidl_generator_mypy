@@ -2,7 +2,7 @@ import os
 import pathlib
 from typing import Dict, List, NamedTuple, Optional, Set, Tuple
 
-from rosidl_cmake import (
+from rosidl_pycommon import (
     convert_camel_case_to_lower_case_underscore,
     generate_files,
     read_generator_arguments,
